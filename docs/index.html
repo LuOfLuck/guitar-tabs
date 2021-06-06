@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolas Olivero</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <div id="header" class="header">
+            <div class="header__text">
+                <p class="header__titulo">Nicolas Olivera</p>
+                <div id="button-list" class="icon"></div>
+            </div>
+
+            <nav id="nav-list" class="header__lista display">
+                <li class="header__lista__elemento" onclick="scrollPosition('home')"> Home  </li>
+                <li class="header__lista__elemento" onclick="scrollPosition('tablaturas')"> Tablaturas  </li>
+                <li class="header__lista__elemento" onclick="scrollPosition('footer')"> Acerca de  </li>
+            </nav>
+            <div >
+            </div>
+        </div>
+    </header>
+    <main id="home" class="main list-scroll">
+        <div class="main__mid">
+            <img src="img/main-guitar.png" alt="" class="main__img">
+        </div>
+        <div class="main__mid">
+            <div class="main__mid__cont">
+                <h1 class="main__titulo">Musica para todos</h1>
+                <p id="to-write" class="main__parrafo">
+                </p>
+            </div>
+        </div>
+    </main>
+    <article id="tablaturas" class="tablature">
+        <h2 class="tablature__title">Tablaturas</h2>
+        <div id="element-tab" class="tablature__cont">
+            <!--Tablaturas guardadas en la base de datos-->
+        </div> 
+    </article>
+
+    <div id="modal" class="modal">
+        <div onclick="modalExit()" class="modal__icon"><span>X</span></div>
+        <div class="carrucel">
+            <div id="img_0" class="carrucel__img">
+                <div onclick="displayImg(0)" class="carrucel__prev"><</div>
+                <div onclick="displayImg(1)" class="carrucel__next">></div>
+                <!-- <img id="img_0" src="img/tabs/tab1.jpg" alt="">
+                <img id="img_1" src="img/tabs/tab2.jpg" alt=""> -->
+                <!-- <img id="img_2" src="img/tabs/tab3.jpg" alt="">
+                <img id="img_2" src="img/tabs/tab4.jpg" alt=""> -->
+            </div>
+            <div class="carrucel__cont">
+                <h2 class="carrucel__title"></h2>
+                <p class="carrucel__parrafo">
+                </p>
+                <a id="link-tab" href="" target="_blank"><button class="tablature__list__button carrucel__button">Tutorial</button></a>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+
+        <!-- <a href="https://es.lovepik.com/images/png-1734221.html">Cartoon Vector Sitting Man Playing Guitar Png vectors by Lovepik.com</a> -->
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
