@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolas Olivero</title>
+    <meta name="author" content="Guerrero Lucas"/>
+    <meta name="description" content="Lista de canciones, oppenig, musica para relajarse, ideal para dormir bien">
+    <meta name="keywords" content="naruto, LuOfLuck, naruto shippuden, musica, lista de reproduccion">
+    <meta name="robots" content="index"/>
+    <meta http-equiv="expires" content="10000"/>
+    <title>Mi musica</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header>
-        <div id="header" class="header">
+        <div id="header" class="header header--active">
             <div class="header__text">
-                <p class="header__titulo">Nicolas Olivera</p>
+                <p class="header__titulo">Lista de canciones</p>
                 <div id="button-list" class="icon"></div>
             </div>
 
             <nav id="nav-list" class="header__lista display">
                 <li class="header__lista__elemento" onclick="scrollPosition('home')"> Home  </li>
-                <li class="header__lista__elemento" onclick="scrollPosition('tablaturas')"> Tablaturas  </li>
+                <li class="header__lista__elemento" onclick="scrollPosition('tablaturas')"> Canciones  </li>
                 <li class="header__lista__elemento" onclick="scrollPosition('footer')"> Acerca de  </li>
             </nav>
             <div >
@@ -37,7 +42,7 @@
         </div>
     </main>
     <article id="tablaturas" class="tablature">
-        <h2 class="tablature__title">Tablaturas</h2>
+        <h2 class="tablature__title">Canciones</h2>
         <div id="element-tab" class="tablature__cont">
             <!--Tablaturas guardadas en la base de datos-->
         </div> 
@@ -49,24 +54,39 @@
             <div id="img_0" class="carrucel__img">
                 <div onclick="displayImg(0)" class="carrucel__prev"><</div>
                 <div onclick="displayImg(1)" class="carrucel__next">></div>
-                <!-- <img id="img_0" src="img/tabs/tab1.jpg" alt="">
-                <img id="img_1" src="img/tabs/tab2.jpg" alt=""> -->
-                <!-- <img id="img_2" src="img/tabs/tab3.jpg" alt="">
-                <img id="img_2" src="img/tabs/tab4.jpg" alt=""> -->
+                <div class="carrucel__img__cont">
+                    <!--Aca el js trae las imagenes-->
+                </div>
             </div>
             <div class="carrucel__cont">
                 <h2 class="carrucel__title"></h2>
                 <p class="carrucel__parrafo">
                 </p>
-                <a id="link-tab" href="" target="_blank"><button class="tablature__list__button carrucel__button">Tutorial</button></a>
+                <a id="link-tab" href="" target="_blank"><button class="tablature__list__button carrucel__button">Escuchar</button></a>
             </div>
         </div>
     </div>
-    <footer>
+    <footer id="footer" class="footer">
+        <div class="footer__redes">
+            <a class="footer__link" href="https://es.lovepik.com/images/png-1734221.html" target="_blank"> dibujo animado hombre sentado tocando la guitarra Png de Lovepik.com</a>
+            <div class="list">
+                <div class="list__element">
+                    <a href="https://facebook/lu.de.luck" target="_blank"><img src="img/icon/facebook.png" alt="Facebook de Lu CR"></a>
+                </div>
+                <div class="list__element">
+                    <a href="https://instagram.com/lugically_cosmic" target="_blank"><img src="img/icon/instagram.png" alt="instagramde lugically_cosmic"></a>
+                </div>
+                <div class="list__element">
+                    <a href="https://github.com/LuOfLuck" target="_blank"><img src="img/icon/github.png" alt="github de LuOfLuck"></a>
+                </div>
+            </div>
+            
+        </div>
+        <p class="footer__legal">Created for Guerrero Lucas ©2021</p>
+        
 
-
-        <!-- <a href="https://es.lovepik.com/images/png-1734221.html">Cartoon Vector Sitting Man Playing Guitar Png vectors by Lovepik.com</a> -->
     </footer>
+    <script type src="js/tabs.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

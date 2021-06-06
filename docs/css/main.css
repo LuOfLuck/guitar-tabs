@@ -13,10 +13,12 @@
     --tono-3: rgb(206, 146, 77);
     --tono-5: rgb(159, 135, 107);
     --tono-6: rgb(143, 131, 117);
-    --sombre: rgb(190, 118, 35);
     --font-pry: rgb(158, 98, 29);
     --font-sec: rgb(190, 118, 35);
     --violeta-rosa: rgb(253, 46, 142);
+    --white-blue: rgba(229, 241, 255,.7);
+    --blue-tiente-1: rgba(46, 142, 253,.7);
+    --blue-tiente-2: rgba(46, 90, 253, .7);
 }
 .header, 
 .carrucel__img,
@@ -117,12 +119,12 @@ body{
         display: block;
         height: 30px;
         width: 30px ;
-        border: 2px solid var(--sombre);
+        border: 2px solid var(--white-blue);
         border-radius: 50%;
         margin: auto; 
     }
     .icon--active{
-        background-color:var(--sombre);
+        background-color:var(--white-blue);
     }
 }
 .main{
@@ -199,9 +201,9 @@ body{
     font-size: 3em;
     text-align: center;
     margin: auto;
-    color: var(--font-pry);
+    color: var(--font-sec);
     padding-bottom: 1rem;
-    border-bottom:3px solid var(--sombre);
+    border-bottom:3px solid var(--font-sec);
     border-radius: 10px;
     width: 60%;
 }
@@ -215,7 +217,7 @@ body{
 .tablature__list{
     width:25%;
     margin: 3rem;
-    border: 3px solid var(--tono-6);
+    background-color: var(--tinte-2);
     border-radius:15px;
     overflow: hidden;
 }
@@ -224,7 +226,7 @@ body{
     width: 100%;
 }
 .tablature__list__cont{
-    padding: .5rem 1rem
+    padding: .5rem 1rem;
 }
 .tablature__list__title{
     font-size: 2em;
@@ -234,7 +236,7 @@ body{
 }
 .tablature__list__button{
     cursor:pointer;
-    float: right;
+    float:right;
     border-radius: 20px;
     margin: 1rem;
     padding: .5rem 1rem;
@@ -291,10 +293,11 @@ body{
     border: 5px solid var(--violeta-rosa);
 }
 .carrucel{
-    background-color: var(--complement);
+    background-color:var(--white-blue);
     display: flex;
     width: 80%;
-    height: 80%;
+    border-radius:30px;
+    overflow: hidden;
     margin: auto;
 }
 .carrucel__next, 
@@ -317,41 +320,44 @@ body{
     position:relative;
     width:50%;
 }
-.carrucel__img > img{
+.carrucel__img img{
     display:none;
     height: 80vh;
     width: 100%;
     margin:auto;
 }
-.carrucel__img > img:nth-of-type(1){
+.carrucel__img img:nth-of-type(1){
     display:block;
 }
 .carrucel__cont{
-    padding: 2rem 3rem;
-    color: var(--tinte-6);
-    height: 70vh;
+    height: 75vh;
     word-wrap: break-word ;
     overflow-y: auto;
 }
 
 .carrucel__title{
+    padding-top: 1rem ;
     font-size: 4em;
+    color: var(--blue-tiente-1);
     text-align: center;
 }
 .carrucel__parrafo{
+    color: var(--blue-tiente-2);
     font-size: 1.5em;
+    padding: 2rem 2rem;
 }
 .carrucel__button{
     color: var(--tinte-6);
     border: 1px solid var(--tinte-6);
     font-size: 1.2em;
-    float: right;
     padding: 1rem 1.5rem;
+    margin:1rem;
+    float:none;
 }
 .carrucel__button:hover{
     border-color:var(--tono-6);
     color: var(--tono-6);
-    background-color: var(--tinte-6);
+    background-color:transparent;
 }
 @media(max-width:768px){
     .carrucel{
@@ -360,21 +366,23 @@ body{
     }
     .carrucel__img{
         width:100%;
+        height: 100vh;
+        overflow: hidden;
     }
-    .carrucel__img > img{
+    .carrucel__img img{
         height:auto;
     }
     .carrucel__cont{
         width: 80%;
-        padding: .5rem 1rem;
         margin:auto;
-        
+        z-index: 50;
     }
     .carrucel__title{
         font-size: 2em;
     }
     .carrucel__parrafo{
         font-size: 1em;
+        padding:1rem;
     }
     .carrucel__button{
         padding:.5rem 1rem;
@@ -385,4 +393,29 @@ body{
         height: 30px;
         width: 30px;
     }
+}
+.footer{
+    background-color: var(--complement);
+}
+.footer__redes{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
+.footer__link{
+    color: var(--tinte-6);
+    text-align: center;
+}
+.list{
+    display:flex;
+}
+.list__element{
+    margin: .5rem 2rem;
+}
+.footer__legal{
+    background-color: var(--tinte-6);
+    padding: 1rem 0;
+    text-align: center;
+    font-size:1.3em
 }

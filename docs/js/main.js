@@ -1,6 +1,7 @@
 const buttonList = document.getElementById("button-list")
 const navList = document.getElementById("nav-list");
 const header = document.getElementById("header");
+header.classList.remove("header--active");
 const write = document.getElementById("to-write");
 const modal = document.getElementById("modal");
 const domTablaturas = document.getElementById("element-tab");
@@ -30,6 +31,7 @@ const scrollPosition = idElement => {
     });
     if( screen.width < 500){
         navDisplay();
+        header.classList.remove("header--active");
     }
 }
 
@@ -37,6 +39,7 @@ const writeText = setInterval(() =>{
     if (contador < quantityStr){
         write.innerHTML += text[contador];
         contador+= 1;
+
     }
     else{ 
         if(count > 50){
@@ -56,8 +59,9 @@ const writeText = setInterval(() =>{
 
 var prev = 0;
 const headerPosition = () => {
-    condicion =  ((window.scrollY < prev && window.scrollY > 50) || (window.scrollY > 50 && window.scrollY < 200));
-    condicion ? header.classList.add("header--active") : header.classList.remove("header--active");
+    if(!(screen.width < 768 && !navList.classList.contains("display"))){
+        (window.scrollY < prev) ? header.classList.add("header--active") : header.classList.remove("header--active");   
+    }
     prev = window.scrollY;
 }
 
@@ -69,54 +73,7 @@ buttonList.addEventListener("click", navDisplay);
 window.addEventListener("scroll",eventScroll);
 //entre boca y river prefiero tu boquita dea
 
-const tablaturas = [
-    {
-        "img":"img/videos/prueba.webp", 
-        "titulo":"hoja en blanco", 
-        "descripcion":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor ea nemo",
-        "tablaturas":[
-            "img/tabs/tab1.jpg",
-            "img/tabs/tab2.jpg",
-        ],
-        "url":"https://youtube.com/hojaenblanck",
-        "id":0
-    },
-    {
-        "img":"img/videos/prueba.webp", 
-        "titulo":"Blue bird", 
-        "descripcion":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor eLorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor eLorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor eLorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor eLorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor eLorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor eLorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor eLorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor eLorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor ea nemo",
-        "tablaturas":[
-            "img/tabs/tab2.jpg",
-            "img/tabs/tab3.jpg",
-        ],
-        "url":"https://youtube.com/",
-        "id":1
-    },
-    {
-        "img":"img/videos/prueba.webp", 
-        "titulo":"Risas y mas", 
-        "descripcion":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor ea nemo",
-        "tablaturas":[
-            "img/tabs/tab2.jpg",
-            "img/tabs/tab1.jpg",
-            "img/tabs/tab3.jpg",
-        ],
-        "url":"https://youtube.com/",
-        "id":2
-    },
-    {
-        "img":"img/videos/prueba.webp", 
-        "titulo":"La mejor cancion del mundo", 
-        "descripcion":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sed dolor ea nemo",
-        "tablaturas":[
-            "img/tabs/tab1.jpg",
-            "img/tabs/tab2.jpg",
-            "img/tabs/tab3.jpg",
-        ],
-        "url":"https://youtube.com/",
-        "id":3
-    },
-];
+
 
 tablaturas.forEach(tablatura => {
     domTablaturas.insertAdjacentHTML('beforeend', `
@@ -130,7 +87,9 @@ tablaturas.forEach(tablatura => {
         </div> 
     `);
 });
+const imagenCarrucel= document.querySelector(".carrucel__img__cont");
 const onloadTab = idTab => {
+    imagenCarrucel.innerHTML = '';
     tablaturas.forEach(tablatura => {
         if(tablatura["id"] == idTab){
             modal.style = " opacity:1; z-index: 20;";
@@ -139,10 +98,10 @@ const onloadTab = idTab => {
             document.getElementById("link-tab").href = tablatura["url"];
             tablatura["tablaturas"].forEach(tab =>{
                 img = `<img id="img_${tablatura['id']}" src="${tab}" alt="${tablatura['titulo']}">`
-                document.querySelector(".carrucel__img").innerHTML += img;
+                imagenCarrucel.innerHTML += img;
             })
             countListElement = tablatura["tablaturas"].length - 1;
-            listImg = document.querySelectorAll('.carrucel__img > img');
+            listImg = document.querySelectorAll('.carrucel__img__cont > img');
         }
     });
 }
